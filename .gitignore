@@ -1,0 +1,11 @@
+/code/vendor/
+.idea/**/*
+.vscode/**/*
+/code/.env
+/dbdata/**/*
+!/dbdata/.gitignore
+/dbdata/pgdata/
+/dbdata/mysqldata/
+/code/.idea/**/*
+/code/**/*
+!/code/mysite
