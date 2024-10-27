@@ -16,8 +16,8 @@ services:
     volumes:
       - ./code:${SITE_PATH}
       - ./.env:${SITE_PATH}/.env
-      - ./fpm/fpm-7.4/php.ini:/usr/local/etc/php/conf.d/php.ini
-      - ./fpm/fpm-7.4/php.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+      - ./fpm/fpm-7.4/custom_php.ini:/usr/local/etc/php/conf.d/custom_php.ini
+      # - ./fpm/fpm-7.4/php.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
     environment:
       COMPOSER_MEMORY_LIMIT: 2G
       # XDEBUG_CONFIG: client_host=${XDEBUG_REMOTE_HOST} client_port=${XDEBUG_STORM_PORT} remote_enable=1
@@ -43,13 +43,13 @@ services:
       dockerfile: Dockerfile
     image: webapp/php8.1 # имя будущего образа
     container_name: webapp81 # имя контейнера после запуска
-    #    ports:
-    #      - "9003:9003"
+    # ports:
+    #   - "9003:9003"
     volumes:
       - ./code:${SITE_PATH}
       - ./.env:${SITE_PATH}/.env
-      - ./fpm/fpm-8.1/php.ini:/usr/local/etc/php/conf.d/php.ini
-      - ./fpm/fpm-8.1/php.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+      - ./fpm/fpm-8.1/custom_php.ini:/usr/local/etc/php/conf.d/custom_php.ini
+      # - ./fpm/fpm-8.1/php.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
     environment:
       COMPOSER_MEMORY_LIMIT: 2G
       XDEBUG_CONFIG: client_host=${XDEBUG_REMOTE_HOST} client_port=${XDEBUG_STORM_PORT} remote_enable=1
@@ -76,13 +76,13 @@ services:
     restart: unless-stopped
     extra_hosts:
     - "host.docker.internal:host-gateway"
-    #    ports:
-    #      - "9003:9003"
+    # ports:
+    #   - "9003:9003"
     volumes:
       - ./code:${SITE_PATH}
       - ./.env:${SITE_PATH}/.env
-      - ./fpm/fpm-8.3/php.ini:/usr/local/etc/php/conf.d/php.ini
-      - ./fpm/fpm-8.3/php.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+      - ./fpm/fpm-8.3/custom_php.ini:/usr/local/etc/php/conf.d/custom_php.ini
+      # - ./fpm/fpm-8.3/php.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
     environment:
       COMPOSER_MEMORY_LIMIT: 2G
       # XDEBUG_CONFIG: client_host=${XDEBUG_REMOTE_HOST} client_port=${XDEBUG_STORM_PORT} remote_enable=1
