@@ -16,11 +16,12 @@ services:
     volumes:
       - ./code:${SITE_PATH}
       - ./.env:${SITE_PATH}/.env
-      - ./fpm/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./fpm/fpm-7.4/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./fpm/fpm-7.4/php.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
     environment:
       COMPOSER_MEMORY_LIMIT: 2G
-      XDEBUG_CONFIG: client_host=${XDEBUG_REMOTE_HOST} client_port=${XDEBUG_STORM_PORT} remote_enable=1
-      PHP_IDE_CONFIG: serverName=${XDEBUG_STORM_SERVER_NAME}
+      # XDEBUG_CONFIG: client_host=${XDEBUG_REMOTE_HOST} client_port=${XDEBUG_STORM_PORT} remote_enable=1
+      # PHP_IDE_CONFIG: serverName=${XDEBUG_STORM_SERVER_NAME}
     expose:
       - 9000
       - 9003
@@ -47,7 +48,8 @@ services:
     volumes:
       - ./code:${SITE_PATH}
       - ./.env:${SITE_PATH}/.env
-      - ./fpm/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./fpm/fpm-8.1/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./fpm/fpm-8.1/php.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
     environment:
       COMPOSER_MEMORY_LIMIT: 2G
       XDEBUG_CONFIG: client_host=${XDEBUG_REMOTE_HOST} client_port=${XDEBUG_STORM_PORT} remote_enable=1
@@ -70,17 +72,21 @@ services:
       context: ./fpm/fpm-8.3
       dockerfile: Dockerfile
     image: webapp/php8.3 # имя будущего образа
-    container_name: webapp83 # имя контейнера после запуска
+    container_name: webapp83 # имя контейнера после запуска    
+    restart: unless-stopped
+    extra_hosts:
+    - "host.docker.internal:host-gateway"
     #    ports:
     #      - "9003:9003"
     volumes:
       - ./code:${SITE_PATH}
       - ./.env:${SITE_PATH}/.env
-      - ./fpm/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./fpm/fpm-8.3/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./fpm/fpm-8.3/php.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
     environment:
       COMPOSER_MEMORY_LIMIT: 2G
-      XDEBUG_CONFIG: client_host=${XDEBUG_REMOTE_HOST} client_port=${XDEBUG_STORM_PORT} remote_enable=1
-      PHP_IDE_CONFIG: serverName=${XDEBUG_STORM_SERVER_NAME}
+      # XDEBUG_CONFIG: client_host=${XDEBUG_REMOTE_HOST} client_port=${XDEBUG_STORM_PORT} remote_enable=1
+      # PHP_IDE_CONFIG: serverName=${XDEBUG_STORM_SERVER_NAME}
     expose:
       - 9000
       - 9003
@@ -174,12 +180,12 @@ services:
     ports:
       - '6378:6379'
     # описываем, какую БД мы создаём
-    environment:
-      - REDIS_PASSWORD=${REDIS_PASSWORD}
-      - REDIS_USER=${REDIS_USER}
-      - REDIS_USER_PASSWORD=${REDIS_USER_PASSWORD}
-      - REDIS_PORT=6379
-      - REDIS_DB=0
+    # environment:
+    #   - REDIS_PASSWORD=${REDIS_PASSWORD}
+    #   - REDIS_USER=${REDIS_USER}
+    #   - REDIS_USER_PASSWORD=${REDIS_USER_PASSWORD}
+    #   - REDIS_PORT=6379
+    #   - REDIS_DB=0
     volumes:
       - ./redis/cache:/data/redis_cache
       - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
