@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd
 
-
+ENV PHP_IDE_CONFIG 'serverName=Service_nework_6'
 # RUN PATH="$PATH:/usr/bin/zsh"
 RUN pecl install xdebug-3.1.5 \
     && docker-php-ext-enable xdebug \
