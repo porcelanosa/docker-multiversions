@@ -16,11 +16,15 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     libmcrypt-dev \
     libpq-dev  \
-    php8.3-pcntl \
-    && docker-php-ext-install -j$(nproc) iconv mbstring mysqli pdo_mysql zip\
+    libicu-dev \
+    && docker-php-ext-install -j$(nproc) iconv mbstring mysqli pdo_mysql zip \
     && docker-php-ext-install pdo pdo_pgsql pgsql \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd
+    && docker-php-ext-install -j$(nproc) gd \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install intl \
+    && docker-php-ext-configure pcntl --enable-pcntl \
+    && docker-php-ext-install pcntl
 
 
 # RUN PATH="$PATH:/usr/bin/zsh"
