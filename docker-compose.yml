@@ -100,36 +100,36 @@ services:
       - db_maria7
       - pg_db
   ############## PHP 8.4 ##############
-  webapp-8-4:
-    build:
-      args:
-        uname: ${PHP_UNAME}
-        uid: ${PHP_UID}
-        gid: ${PHP_GID}
-      context: ./fpm/fpm-8.4
-      dockerfile: Dockerfile
-    image: webapp/php8.4 # имя будущего образа
-    container_name: webapp84 # имя контейнера после запуска    
-    restart: unless-stopped
-    extra_hosts:
-    - "host.docker.internal:host-gateway"
-    # ports:
-    #   - "9003:9003"
-    volumes:
-      - ./code:${SITE_PATH}
-      - ./.env:${SITE_PATH}/.env
-      - ./fpm/fpm-8.4/custom_php.ini:/usr/local/etc/php/conf.d/custom_php.ini
-    environment:
-      COMPOSER_MEMORY_LIMIT: 2G
-    expose:
-      - 9000
-      - 9003
-    # мы можем создать для контейнеров внутреннюю сеть
-    networks:
-      - app-net
-    depends_on:
-      - db_maria7
-      - pg_db
+  # webapp-8-4:
+  #   build:
+  #     args:
+  #       uname: ${PHP_UNAME}
+  #       uid: ${PHP_UID}
+  #       gid: ${PHP_GID}
+  #     context: ./fpm/fpm-8.4
+  #     dockerfile: Dockerfile
+  #   image: webapp/php8.4 # имя будущего образа
+  #   container_name: webapp84 # имя контейнера после запуска    
+  #   restart: unless-stopped
+  #   extra_hosts:
+  #   - "host.docker.internal:host-gateway"
+  #   # ports:
+  #   #   - "9003:9003"
+  #   volumes:
+  #     - ./code:${SITE_PATH}
+  #     - ./.env:${SITE_PATH}/.env
+  #     - ./fpm/fpm-8.4/custom_php.ini:/usr/local/etc/php/conf.d/custom_php.ini
+  #   environment:
+  #     COMPOSER_MEMORY_LIMIT: 2G
+  #   expose:
+  #     - 9000
+  #     - 9003
+  #   # мы можем создать для контейнеров внутреннюю сеть
+  #   networks:
+  #     - app-net
+  #   depends_on:
+  #     - db_maria7
+  #     - pg_db
   ########################################## END PHP ##########################################
   #контейне с Nginx
   nginx7:

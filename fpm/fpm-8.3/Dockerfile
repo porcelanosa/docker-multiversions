@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     libmcrypt-dev \
     libpq-dev  \
+    php8.3-pcntl \
     && docker-php-ext-install -j$(nproc) iconv mbstring mysqli pdo_mysql zip\
     && docker-php-ext-install pdo pdo_pgsql pgsql \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
