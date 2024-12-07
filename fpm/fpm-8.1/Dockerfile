@@ -2,10 +2,11 @@ FROM php:8.1-fpm
 
 RUN pear config-set php_ini "$PHP_INI_DIR"
 # ставим необходимые для нормальной работы модули
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y \ 
     curl \
     sudo \
     nano \
+    openssh-server \
     wget \
     git \
     zsh \
@@ -16,12 +17,17 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     libmcrypt-dev \
     libpq-dev  \
+    libicu-dev \
     && docker-php-ext-install -j$(nproc) iconv mbstring mysqli pdo_mysql zip\
     && docker-php-ext-install pdo pdo_pgsql pgsql \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd
+    && docker-php-ext-install -j$(nproc) gd \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install intl \
+    && docker-php-ext-configure pcntl --enable-pcntl \
+    && docker-php-ext-install pcntl
 
-ENV PHP_IDE_CONFIG 'serverName=Service_nework_6'
+ENV PHP_IDE_CONFIG = 'serverName=Service_nework_6'
 # RUN PATH="$PATH:/usr/bin/zsh"
 RUN pecl install xdebug-3.1.5 \
     && docker-php-ext-enable xdebug \
