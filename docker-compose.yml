@@ -42,10 +42,10 @@ services:
       context: ./fpm/fpm-8.1
       dockerfile: Dockerfile
     image: webapp/php8.1 # имя будущего образа
-    container_name: webapp81 # имя контейнера после запуска 
+    container_name: webapp81 # имя контейнера после запуска
     restart: unless-stopped
     extra_hosts:
-    - "host.docker.internal:host-gateway"
+      - "host.docker.internal:host-gateway"
     # ports:
     #   - "9003:9003"
     volumes:
@@ -75,10 +75,10 @@ services:
       context: ./fpm/fpm-8.3
       dockerfile: Dockerfile
     image: webapp/php8.3 # имя будущего образа
-    container_name: webapp83 # имя контейнера после запуска    
+    container_name: webapp83 # имя контейнера после запуска
     restart: unless-stopped
     extra_hosts:
-    - "host.docker.internal:host-gateway"
+      - "host.docker.internal:host-gateway"
     # ports:
     #   - "9003:9003"
     volumes:
@@ -109,7 +109,7 @@ services:
   #     context: ./fpm/fpm-8.4
   #     dockerfile: Dockerfile
   #   image: webapp/php8.4 # имя будущего образа
-  #   container_name: webapp84 # имя контейнера после запуска    
+  #   container_name: webapp84 # имя контейнера после запуска
   #   restart: unless-stopped
   #   extra_hosts:
   #   - "host.docker.internal:host-gateway"
@@ -140,8 +140,8 @@ services:
     container_name: ng_webserver_7
     # проброс портов
     ports:
-      - '80:80'
-      - '443:443'
+      - "80:80"
+      - "443:443"
     volumes:
       - ./code:/data
       - ./nginx/hosts:/etc/nginx/sites-enabled
@@ -161,7 +161,7 @@ services:
     container_name: maria_db7
     restart: always
     ports:
-      - '3306:3306'
+      - "3306:3306"
     # описываем, какую БД мы создаём
     environment:
       # MARIADB_USER: mdb_user #${MARIADB_USER}
@@ -188,7 +188,7 @@ services:
     container_name: pg_db
     restart: always
     ports:
-      - '5432:5432'
+      - "5432:5432"
     # описываем, какую БД мы создаём
     environment:
       POSTGRES_USER: ${PGSQL_DB_USERNAME}
@@ -199,7 +199,21 @@ services:
       - ./dbdata/pgdata:/data/postgres
     networks:
       - app-net
-
+  # контейнер с Node.js
+  # nodejs:
+  #   build:
+  #     context: ./nodejs
+  #     dockerfile: Dockerfile
+  #   image: nodejs
+  #   container_name: node_js
+  #   ports:
+  #     - 8081:8081
+  #   restart: unless-stopped
+  #   volumes:
+  #     # - ./code:/data
+  #     - ./code/nodejs/app:/data/nodejs/app
+  #   networks:
+  #     - app-net
   # контейнер с Redis
   redis:
     # image: redis:latest
@@ -212,7 +226,7 @@ services:
     tty: true
     stdin_open: true
     ports:
-      - '6378:6379'
+      - "6378:6379"
     # описываем, какую БД мы создаём
     # environment:
     #   - REDIS_PASSWORD=${REDIS_PASSWORD}
@@ -228,7 +242,42 @@ services:
     depends_on:
       - db_maria7
       - pg_db
-
+  # for strapi
+  # strapiexample:
+  #   image: strapi/strapi
+  #   container_name: strapiexample
+  #   restart: unless-stopped
+  #   env_file: .env
+  #   environment:
+  #     DATABASE_CLIENT: ${DATABASE_CLIENT}
+  #     DATABASE_NAME: ${DATABASE_NAME}
+  #     DATABASE_HOST: ${DATABASE_HOST}
+  #     DATABASE_PORT: ${DATABASE_PORT}
+  #     DATABASE_USERNAME: ${DATABASE_USERNAME}
+  #     DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+  #   #    links:
+  #   #      - mongo:mongo
+  #   networks:
+  #     - strapi-app-network
+  #   volumes:
+  #     - ./code/nuxt.loc:/data/nuxt.loc
+  #   ports:
+  #     - "1337:1337"
+  # MONGO for Strapi
+  # mongo_db:
+  #   image: mongo
+  #   container_name: mongo_strapi
+  #   restart: unless-stopped
+  #   env_file: .env
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+  #     MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+  #   networks:
+  #     - app-net
+  #   volumes:
+  #     - ./dbdata/strapidata:/data/db
+  #   ports:
+  #     - "27017:27017"
 #Docker Networks
 networks:
   app-net:
@@ -237,3 +286,5 @@ networks:
     #   driver: default
     #   config:
     #     - subnet: ${SUBNET_IP}/${SUBNET_MASK}
+  # strapi-app-network:
+  #   driver: bridge

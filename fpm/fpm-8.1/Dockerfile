@@ -33,6 +33,8 @@ RUN pecl install xdebug-3.1.5 \
     && docker-php-ext-enable xdebug \
     && pecl install mcrypt-1.0.7 \
     && docker-php-ext-enable mcrypt \
+    && docker-php-ext-install sockets \    
+    && docker-php-ext-enable sockets \
     && echo "xdebug.mode = debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.client_host = host.docker.internal" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.start_with_request = yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
