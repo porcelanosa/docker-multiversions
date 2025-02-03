@@ -10,7 +10,7 @@ services:
       context: ./fpm/fpm-7.4
       dockerfile: Dockerfile
     image: webapp/php7.4 # имя будущего образа
-    container_name: webapp7 # имя контейнера после запуска
+    container_name: webapp74_wsl # имя контейнера после запуска
     #    ports:
     #      - "9003:9003"
     volumes:
@@ -29,8 +29,8 @@ services:
     networks:
       - app-net
     depends_on:
-      - db_maria7
-      - pg_db
+      - db_maria_wsl
+      - pg_db_wsl
 
   ############## PHP 8.1 ##############
   webapp-8-1:
@@ -42,7 +42,7 @@ services:
       context: ./fpm/fpm-8.1
       dockerfile: Dockerfile
     image: webapp/php8.1 # имя будущего образа
-    container_name: webapp81 # имя контейнера после запуска
+    container_name: webapp81_wsl # имя контейнера после запуска
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
@@ -63,8 +63,8 @@ services:
     networks:
       - app-net
     depends_on:
-      - db_maria7
-      - pg_db
+      - db_maria_wsl
+      - pg_db_wsl
   ############## PHP 8.3 ##############
   webapp-8-3:
     build:
@@ -75,16 +75,16 @@ services:
       context: ./fpm/fpm-8.3
       dockerfile: Dockerfile
     image: webapp/php8.3 # имя будущего образа
-    container_name: webapp83 # имя контейнера после запуска
+    container_name: webapp83_wsl # имя контейнера после запуска
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
     # ports:
     #   - "9003:9003"
     volumes:
-      - ./code:${SITE_PATH}
-      - ./.env:${SITE_PATH}/.env
-      - ./fpm/fpm-8.3/custom_php.ini:/usr/local/etc/php/conf.d/custom_php.ini
+      - ./code:${SITE_PATH}:cached
+      - ./.env:${SITE_PATH}/.env:cached
+      - ./fpm/fpm-8.3/custom_php.ini:/usr/local/etc/php/conf.d/custom_php.ini:cached
       # - ./fpm/fpm-8.3/php.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
     environment:
       COMPOSER_MEMORY_LIMIT: 2G
@@ -97,8 +97,8 @@ services:
     networks:
       - app-net
     depends_on:
-      - db_maria7
-      - pg_db
+      - db_maria_wsl
+      - pg_db_wsl
   ############## PHP 8.4 ##############
   # webapp-8-4:
   #   build:
@@ -128,37 +128,37 @@ services:
   #   networks:
   #     - app-net
   #   depends_on:
-  #     - db_maria7
-  #     - pg_db
+  #     - db_maria_wsl
+  #     - pg_db_wsl
   ########################################## END PHP ##########################################
   #контейне с Nginx
-  nginx7:
+  nginx:
     build:
       context: ./nginx
       dockerfile: Dockerfile
     image: webapp/nginx
-    container_name: ng_webserver_7
+    container_name: nginx_wsl
     # проброс портов
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - ./code:/data
-      - ./nginx/hosts:/etc/nginx/sites-enabled
+      - ./code:/data:cached
+      - ./nginx/hosts:/etc/nginx/sites-enabled:cached
     networks:
       - app-net
     depends_on:
       - webapp-7-4
       - webapp-8-1
       - webapp-8-3
-      - db_maria7
-      - pg_db
+      - db_maria_wsl
+      - pg_db_wsl
 
   # контейнер с MySQL
   # строим на базе стандартного образа
-  db_maria7:
+  db_maria_wsl:
     image: mariadb
-    container_name: maria_db7
+    container_name: maria_db_wsl
     restart: always
     ports:
       - "3306:3306"
@@ -178,14 +178,14 @@ services:
       # MYSQL_USER: muser
       # MYSQL_PASSWORD: pass
     volumes:
-      - ./dbdata/mysqldata:/var/lib/mysql
+      - ./dbdata/mysqldata:/var/lib/mysql:cached
     networks:
       - app-net
 
   # контейнер с PostgresQL
-  pg_db:
+  pg_db_wsl:
     image: postgres:14.4-alpine
-    container_name: pg_db
+    container_name: pg_db_wsl
     restart: always
     ports:
       - "5432:5432"
@@ -221,7 +221,7 @@ services:
       context: ./redis
       dockerfile: Dockerfile
     image: redis_image
-    container_name: redis_container
+    container_name: redis_container_wsl
     restart: unless-stopped
     tty: true
     stdin_open: true
@@ -240,8 +240,8 @@ services:
     networks:
       - app-net
     depends_on:
-      - db_maria7
-      - pg_db
+      - db_maria_wsl
+      - pg_db_wsl
   # for strapi
   # strapiexample:
   #   image: strapi/strapi

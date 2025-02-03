@@ -25,7 +25,9 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
     && docker-php-ext-configure pcntl --enable-pcntl \
-    && docker-php-ext-install pcntl
+    && docker-php-ext-install pcntl \
+    && docker-php-ext-install exif  && \
+    apt-get clean
 
 
 # RUN PATH="$PATH:/usr/bin/zsh"
@@ -43,6 +45,13 @@ RUN pecl install xdebug \
 
     # Default powerline10k theme, no plugins installed
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.2.1/zsh-in-docker.sh)"
+# Создаем .zshrc с алиасами
+RUN echo "alias ll='ls -lah'" >> /root/.zshrc && \
+    echo "alias gs='git status'" >> /root/.zshrc \
+    echo "alias art='php artisan'" >> /root/.zshrc
+
+# Устанавливаем Zsh как shell по умолчанию
+RUN chsh -s $(which zsh) root
 RUN zsh
 
 # RUN pecl channel-update pecl.php.net
