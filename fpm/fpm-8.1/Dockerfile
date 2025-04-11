@@ -27,6 +27,10 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure pcntl --enable-pcntl \
     && docker-php-ext-install pcntl
 
+
+# Clear cache
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
 ENV PHP_IDE_CONFIG = 'serverName=Service_nework_6'
 # RUN PATH="$PATH:/usr/bin/zsh"
 RUN pecl install xdebug-3.1.5 \

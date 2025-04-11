@@ -30,6 +30,9 @@ RUN apt-get update && apt-get install -y \
     apt-get clean
 
 
+# Clear cache
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
 # RUN PATH="$PATH:/usr/bin/zsh"
 RUN pecl install xdebug \
     && docker-php-ext-enable xdebug \
@@ -43,8 +46,9 @@ RUN pecl install xdebug \
     && echo "xdebug.log = /var/log/xdebug.log" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.idekey = PHPSTORM" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
-    # Default powerline10k theme, no plugins installed
+# Default powerline10k theme, no plugins installed
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.2.1/zsh-in-docker.sh)"
+
 # Создаем .zshrc с алиасами
 RUN echo "alias ll='ls -lah'" >> /root/.zshrc && \
     echo "alias gs='git status'" >> /root/.zshrc \
@@ -54,6 +58,10 @@ RUN echo "alias ll='ls -lah'" >> /root/.zshrc && \
 RUN chsh -s $(which zsh) root
 RUN zsh
 
+ARG NODE_VERSION=22
+RUN curl -sLS https://deb.nodesource.com/setup_$NODE_VERSION.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g npm@11.2.0
 # RUN pecl channel-update pecl.php.net
 # pecl install xdebug && \
 # docker-php-ext-enable xdebug \
