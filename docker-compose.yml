@@ -79,15 +79,16 @@ services:
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    # ports:
-    #   - "9003:9003"
+    ports:
+      - "5185:5185" # Проброс порта Vite
     volumes:
       - ./code:${SITE_PATH}:cached
       - ./.env:${SITE_PATH}/.env:cached
       - ./fpm/fpm-8.3/custom_php.ini:/usr/local/etc/php/conf.d/custom_php.ini:cached
       # - ./fpm/fpm-8.3/php.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
     environment:
-      COMPOSER_MEMORY_LIMIT: 2G
+      - COMPOSER_MEMORY_LIMIT: 2G
+      - CHOKIDAR_USEPOLLING: true # Для корректной работы file watching
       # XDEBUG_CONFIG: client_host=${XDEBUG_REMOTE_HOST} client_port=${XDEBUG_STORM_PORT} remote_enable=1
       # PHP_IDE_CONFIG: serverName=${XDEBUG_STORM_SERVER_NAME}
     expose:
@@ -138,10 +139,14 @@ services:
       dockerfile: Dockerfile
     image: webapp/nginx
     container_name: nginx_wsl
+    extra_hosts:
+    - "host.docker.internal:host-gateway"
+    - "packs.local:host-gateway"
     # проброс портов
     ports:
       - "80:80"
       - "443:443"
+      - "5185:5185" # для HMR
     volumes:
       - ./code:/data:cached
       - ./nginx/hosts:/etc/nginx/sites-enabled:cached
@@ -242,6 +247,21 @@ services:
     depends_on:
       - db_maria_wsl
       - pg_db_wsl
+  # ElasticSearch
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.10.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m # Ограничение использования памяти
+    ports:
+      - "9200:9200" # HTTP порт
+      - "9300:9300" # Транспортный порт (для кластеризации)
+    volumes:
+      - es_data:/usr/share/elasticsearch/data # Постоянное хранилище данных
+    networks:
+      - app-net
+
   # for strapi
   # strapiexample:
   #   image: strapi/strapi
@@ -278,6 +298,28 @@ services:
   #     - ./dbdata/strapidata:/data/db
   #   ports:
   #     - "27017:27017"
+  
+  # Контейнер с Go
+  # go-app:
+  #   image: golang:1.20-alpine # используем официальный образ Go
+  #   container_name: go_app_wsl
+  #   restart: unless-stopped
+  #   working_dir: /go/src/app
+  #   volumes:
+  #     - ./code-go:/go/src/app # монтируем локальную директорию с кодом Go
+  #   ports:
+  #     - "8088:8080" # проброс портов, если ваше Go приложение слушает на 8080 порту
+  #   networks:
+  #     - app-net
+  #   depends_on:
+  #     - db_maria_wsl
+  #     - pg_db_wsl
+  #   environment:      
+  #   - GOPROXY=https://proxy.golang.org,direct
+  #   - GO111MODULE=on
+volumes:
+  es_data:
+    driver: local
 #Docker Networks
 networks:
   app-net:
