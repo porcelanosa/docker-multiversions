@@ -75,7 +75,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:
-      - "9013:9003"     # xDebug
+      - "${XDEBUG_PORT_83}:9003"     # xDebug
       - "5185:5185"     # Vite
       - "9085:9083"     # Laravel Octane или другой HTTP порт
     volumes:
@@ -108,7 +108,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:
-      - "9014:9003" # xDebug
+      - "${XDEBUG_PORT_84}:9003" # xDebug
       - "9084:9084" # Laravel Octane или кастомный порт
     volumes:
       - ./code:${SITE_PATH}
