@@ -124,6 +124,9 @@ services:
     depends_on:
       - db_maria_wsl
 
+  vite:
+    ports:
+      - "5512:5512"
   # Nginx
   nginx:
     build:
