@@ -1,0 +1,289 @@
+2025-07-28 14:59:09,096 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 14:59:09,097 WARN No file matches via include "/etc/supervisor/conf.d/*.conf"
+2025-07-28 14:59:09,105 INFO RPC interface 'supervisor' initialized
+2025-07-28 14:59:09,106 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-07-28 14:59:09,106 INFO supervisord started with pid 1
+2025-07-28 14:59:44,164 INFO reaped unknown pid 70 (exit status 0)
+2025-07-28 15:01:27,334 INFO reaped unknown pid 131 (exit status 0)
+2025-07-28 15:11:21,716 WARN received SIGQUIT indicating exit request
+2025-07-28 15:11:24,632 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:11:24,632 WARN No file matches via include "/etc/supervisor/conf.d/*.conf"
+2025-07-28 15:11:24,638 INFO RPC interface 'supervisor' initialized
+2025-07-28 15:11:24,642 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-07-28 15:11:24,643 INFO supervisord started with pid 1
+2025-07-28 15:11:37,665 INFO reaped unknown pid 68 (exit status 0)
+2025-07-28 15:14:14,608 WARN received SIGQUIT indicating exit request
+2025-07-28 15:14:18,426 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:14:18,429 WARN No file matches via include "/etc/supervisor/conf.d/*.conf"
+2025-07-28 15:14:18,445 INFO RPC interface 'supervisor' initialized
+2025-07-28 15:14:18,453 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-07-28 15:14:18,455 INFO supervisord started with pid 1
+2025-07-28 15:14:33,486 INFO reaped unknown pid 69 (exit status 0)
+2025-07-28 15:18:44,911 INFO reaped unknown pid 67 (terminated by SIGTERM)
+2025-07-28 15:18:44,911 INFO reaped unknown pid 89 (terminated by SIGTERM)
+2025-07-28 15:18:52,923 INFO reaped unknown pid 148 (exit status 0)
+2025-07-28 15:23:56,169 WARN received SIGQUIT indicating exit request
+2025-07-28 15:23:59,085 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:23:59,093 WARN No file matches via include "/etc/supervisor/conf.d/*.conf"
+2025-07-28 15:23:59,108 INFO RPC interface 'supervisor' initialized
+2025-07-28 15:23:59,113 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-07-28 15:23:59,114 INFO supervisord started with pid 1
+2025-07-28 15:24:11,134 INFO reaped unknown pid 69 (exit status 0)
+2025-07-28 15:28:41,218 WARN received SIGQUIT indicating exit request
+2025-07-28 15:42:05,685 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:42:05,689 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:42:05,689 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:42:05,689 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:42:05,691 INFO supervisord started with pid 1
+2025-07-28 15:42:06,695 INFO spawned: 'laravel-schedule' with pid 11
+2025-07-28 15:42:06,721 INFO spawned: 'laravel-reverb' with pid 12
+2025-07-28 15:42:06,759 INFO spawned: 'laravel-worker_00' with pid 13
+2025-07-28 15:42:06,813 INFO spawned: 'laravel-worker_01' with pid 14
+2025-07-28 15:42:08,211 INFO success: laravel-schedule entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-07-28 15:42:08,211 INFO success: laravel-reverb entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-07-28 15:42:08,212 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-07-28 15:42:08,212 INFO success: laravel-worker_01 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-07-28 15:42:24,762 INFO reaped unknown pid 88 (exit status 0)
+2025-07-28 15:50:07,452 WARN received SIGQUIT indicating exit request
+2025-07-28 15:50:07,452 INFO waiting for laravel-schedule, laravel-reverb, laravel-worker_00, laravel-worker_01 to die
+2025-07-28 15:50:07,506 INFO stopped: laravel-worker_00 (exit status 0)
+2025-07-28 15:50:07,514 INFO stopped: laravel-worker_01 (exit status 0)
+2025-07-28 15:50:07,568 INFO stopped: laravel-reverb (exit status 0)
+2025-07-28 15:50:07,581 WARN stopped: laravel-schedule (terminated by SIGTERM)
+2025-07-28 15:50:10,351 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:50:10,351 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:50:10,351 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:50:10,351 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:50:10,363 INFO daemonizing the supervisord process
+2025-07-28 15:50:12,501 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:50:12,509 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:50:12,509 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:50:12,509 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:50:15,257 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:50:15,258 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:50:15,258 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:50:15,258 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:50:15,263 INFO daemonizing the supervisord process
+2025-07-28 15:50:15,264 INFO supervisord started with pid 11
+2025-07-28 15:50:17,351 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:50:17,351 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:50:17,351 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:50:17,351 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:50:17,370 INFO daemonizing the supervisord process
+2025-07-28 15:50:17,381 INFO supervisord started with pid 29
+2025-07-28 15:50:19,352 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:50:19,353 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:50:19,353 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:50:19,353 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:50:19,358 INFO daemonizing the supervisord process
+2025-07-28 15:50:19,359 INFO supervisord started with pid 11
+2025-07-28 15:50:22,241 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:50:22,241 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:50:22,241 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:50:22,241 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:50:26,899 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:50:26,901 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:50:26,901 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:50:26,901 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:50:26,906 INFO daemonizing the supervisord process
+2025-07-28 15:50:26,907 INFO supervisord started with pid 11
+2025-07-28 15:50:34,335 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:50:34,335 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:50:34,335 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:50:34,335 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:50:34,341 INFO daemonizing the supervisord process
+2025-07-28 15:50:49,293 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:50:49,296 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:50:49,296 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:50:49,296 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:51:06,307 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:51:06,308 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:51:06,308 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:51:06,308 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:51:06,312 INFO daemonizing the supervisord process
+2025-07-28 15:51:08,158 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:51:08,158 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:51:08,158 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:51:08,158 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:51:08,167 INFO daemonizing the supervisord process
+2025-07-28 15:51:08,178 INFO supervisord started with pid 10
+2025-07-28 15:51:09,821 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:51:09,821 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:51:09,821 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:51:09,821 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:51:11,338 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:51:11,341 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:51:11,341 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:51:11,341 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:51:13,212 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:51:13,212 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:51:13,213 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:51:13,213 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:51:13,221 INFO daemonizing the supervisord process
+2025-07-28 15:51:15,942 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:51:15,943 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:51:15,943 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:51:15,943 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:51:15,952 INFO daemonizing the supervisord process
+2025-07-28 15:51:15,955 INFO supervisord started with pid 11
+2025-07-28 15:51:20,288 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:51:20,288 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:51:20,288 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:51:20,288 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:51:27,360 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:51:27,360 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:51:27,360 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:51:27,360 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:51:27,365 INFO daemonizing the supervisord process
+2025-07-28 15:51:41,792 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:51:41,795 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:51:41,795 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:51:41,795 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:52:08,912 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:52:08,913 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:52:08,913 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:52:08,913 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:52:08,933 INFO daemonizing the supervisord process
+2025-07-28 15:52:08,939 INFO supervisord started with pid 11
+2025-07-28 15:53:02,996 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:53:02,996 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:53:02,996 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:53:02,996 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:53:19,031 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:53:19,031 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:53:19,031 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:53:19,031 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:53:19,044 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:53:19,052 INFO daemonizing the supervisord process
+2025-07-28 15:53:20,876 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:53:20,876 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:53:20,876 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:53:20,876 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:53:20,882 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:53:22,981 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:53:22,984 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:53:22,984 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:53:22,984 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:53:22,992 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:53:23,005 INFO daemonizing the supervisord process
+2025-07-28 15:53:24,793 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:53:24,793 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:53:24,793 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:53:24,793 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:53:24,798 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:53:24,811 INFO daemonizing the supervisord process
+2025-07-28 15:53:27,196 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:53:27,196 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:53:27,197 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:53:27,197 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:53:27,205 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:53:27,214 INFO daemonizing the supervisord process
+2025-07-28 15:53:27,215 INFO supervisord started with pid 11
+2025-07-28 15:53:30,414 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:53:30,414 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:53:30,415 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:53:30,415 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:53:30,420 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:53:30,424 INFO daemonizing the supervisord process
+2025-07-28 15:53:30,425 INFO supervisord started with pid 12
+2025-07-28 15:53:35,429 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:53:35,430 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:53:35,430 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:53:35,430 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:53:35,435 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:53:35,443 INFO daemonizing the supervisord process
+2025-07-28 15:53:35,448 INFO supervisord started with pid 11
+2025-07-28 15:53:42,863 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:53:42,864 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:53:42,864 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:53:42,864 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:53:42,870 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:53:42,875 INFO daemonizing the supervisord process
+2025-07-28 15:53:56,863 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:53:56,864 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:53:56,864 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:53:56,864 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:53:56,869 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:54:23,653 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:54:23,653 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:54:23,653 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:54:23,653 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:54:23,658 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:55:16,413 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:55:16,413 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:55:16,413 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:55:16,413 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:55:16,429 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:56:17,628 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:56:17,630 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:56:17,630 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:56:17,630 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:56:17,641 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:56:17,648 INFO daemonizing the supervisord process
+2025-07-28 15:57:20,627 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:57:20,640 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:57:20,640 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:57:20,640 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:57:20,657 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:58:21,653 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:58:21,653 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:58:21,653 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:58:21,653 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:58:21,659 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:58:21,663 INFO daemonizing the supervisord process
+2025-07-28 15:58:21,665 INFO supervisord started with pid 12
+2025-07-28 15:58:52,950 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:58:52,950 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:58:52,950 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:58:52,950 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:58:52,955 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:58:54,744 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:58:54,744 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:58:54,744 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:58:54,745 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:58:54,749 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:58:54,758 INFO daemonizing the supervisord process
+2025-07-28 15:58:54,760 INFO supervisord started with pid 11
+2025-07-28 15:58:57,068 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:58:57,068 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:58:57,068 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:58:57,068 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:58:57,081 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:58:59,558 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:58:59,558 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:58:59,558 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:58:59,558 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:58:59,575 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:58:59,580 INFO daemonizing the supervisord process
+2025-07-28 15:58:59,581 INFO supervisord started with pid 11
+2025-07-28 15:59:01,956 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:59:01,956 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:59:01,956 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:59:01,956 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:59:01,978 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:59:01,981 INFO daemonizing the supervisord process
+2025-07-28 15:59:04,707 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:59:04,707 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:59:04,707 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:59:04,707 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:59:04,721 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:59:04,729 INFO daemonizing the supervisord process
+2025-07-28 15:59:09,193 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:59:09,196 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:59:09,196 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:59:09,196 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:59:09,212 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:59:09,215 INFO daemonizing the supervisord process
+2025-07-28 15:59:17,545 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:59:17,546 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:59:17,546 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:59:17,546 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:59:17,556 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:59:17,568 INFO daemonizing the supervisord process
+2025-07-28 15:59:17,571 INFO supervisord started with pid 11
+2025-07-28 15:59:32,164 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-07-28 15:59:32,164 INFO Included extra file "/etc/supervisor/conf.d/laravel-reverb.conf" during parsing
+2025-07-28 15:59:32,164 INFO Included extra file "/etc/supervisor/conf.d/laravel-schedule.conf" during parsing
+2025-07-28 15:59:32,164 INFO Included extra file "/etc/supervisor/conf.d/laravel-worker.conf" during parsing
+2025-07-28 15:59:32,195 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2025-07-28 15:59:32,198 INFO daemonizing the supervisord process

@@ -1,0 +1,7 @@
+Xdebug: [Log Files] File '/var/log/xdebug.log' could not be opened.
+Xdebug: [Step Debug] Could not connect to debugging client. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+
+   INFO  Starting server on 0.0.0.0:8080.  
+
+   INFO  Gracefully terminating connections.  
+

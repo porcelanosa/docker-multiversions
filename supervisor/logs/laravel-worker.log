@@ -1,0 +1,16 @@
+Xdebug: [Log Files] File '/var/log/xdebug.log' could not be opened.
+Xdebug: [Step Debug] Could not connect to debugging client. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+Xdebug: [Log Files] File '/var/log/xdebug.log' could not be opened.
+Xdebug: [Step Debug] Could not connect to debugging client. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+  2025-07-28 15:42:09 App\Notifications\TestNotification ............. RUNNING
+  2025-07-28 15:42:09 App\Notifications\TestNotification ............. RUNNING
+  2025-07-28 15:42:09 App\Notifications\TestNotification  2025-07-28 15:42:09 App\Notifications\TestNotification ....... 182.26ms DONE
+ ....... 176.75ms DONE
+  2025-07-28 15:42:09 App\Notifications\TestNotification ............. RUNNING
+  2025-07-28 15:42:09 App\Notifications\TestNotification ............. RUNNING
+  2025-07-28 15:42:09 App\Notifications\TestNotification ........ 43.27ms DONE
+  2025-07-28 15:42:09 App\Notifications\TestNotification ........ 49.63ms DONE
+  2025-07-28 15:42:09 Illuminate\Notifications\Events\BroadcastNotificationCreated  RUNNING
+  2025-07-28 15:42:09 Illuminate\Notifications\Events\BroadcastNotificationCreated  RUNNING
+  2025-07-28 15:42:09 Illuminate\Notifications\Events\BroadcastNotificationCreated  157.47ms DONE
+  2025-07-28 15:42:09 Illuminate\Notifications\Events\BroadcastNotificationCreated  148.52ms DONE

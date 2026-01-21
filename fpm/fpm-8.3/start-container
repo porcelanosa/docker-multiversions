@@ -1,0 +1,9 @@
+# start-container script
+#!/bin/bash
+
+# Запуск php-fpm в фоне
+php-fpm --daemonize
+
+# Запуск supervisor в foreground режиме
+# exec /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+exec /usr/bin/supervisord -c /etc/supervisor/supervisord.conf -n

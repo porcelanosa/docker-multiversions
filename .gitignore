@@ -9,3 +9,5 @@
 /code/.idea/**/*
 /code/**/*
 !/code/mysite
+!/nginx/logs/.gitignore
+/nginx/logs/**/*

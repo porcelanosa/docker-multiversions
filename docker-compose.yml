@@ -1,4 +1,31 @@
 services:
+  # PHP 5.6
+  # webapp-5-6:
+  #   build:
+  #     args:
+  #       uname: ${PHP_UNAME}
+  #       uid: ${PHP_UID}
+  #       gid: ${PHP_GID}
+  #     context: ./fpm/fpm-5.6
+  #     dockerfile: Dockerfile
+  #   image: webapp/php5.6
+  #   container_name: webapp56_wsl
+  #   ports:
+  #     - "${XDEBUG_PORT_56}:9003" # xDebug
+  #     - "9056:9056"              # Laravel Octane или кастомный HTTP порт
+  #   volumes:
+  #     - ./code:${SITE_PATH}
+  #     - ./.env:${SITE_PATH}/.env
+  #   environment:
+  #     COMPOSER_MEMORY_LIMIT: 2G
+  #   expose:
+  #     - 9000
+  #     - 9003
+  #     - 9056
+  #   networks:
+  #     - app-net
+  #   depends_on:
+  #     - db_maria_wsl
   # PHP 7.4
   webapp-7-4:
     build:
@@ -75,19 +102,27 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:
-      - "${XDEBUG_PORT_83}:9003"     # xDebug
+      # - "${XDEBUG_PORT_83}:9003"     # xDebug
+      - "9383:9003"
       - "5185:5185"     # Vite
       - "9085:9083"     # Laravel Octane или другой HTTP порт
+      - "8080:8080"  # для Reverb
     volumes:
       - ./code:${SITE_PATH}:cached
       - ./.env:${SITE_PATH}/.env:cached
+      - ./supervisor/supervisord.conf:/etc/supervisor/supervisord.conf
+      - ./supervisor/conf.d:/etc/supervisor/conf.d
+      # - ./supervisor/logs:/var/log/supervisor
     environment:
       COMPOSER_MEMORY_LIMIT: 2G
       CHOKIDAR_USEPOLLING: true
+      XDEBUG_CONFIG: client_host=${XDEBUG_REMOTE_HOST} client_port=${XDEBUG_STORM_PORT} remote_enable=1
+      PHP_IDE_CONFIG: serverName=${XDEBUG_STORM_SERVER_NAME}
     expose:
       - 9000
       - 9003
-      - 9083
+      - 9083    
+      - 8080 
     networks:
       - app-net
     depends_on:
@@ -119,6 +154,7 @@ services:
       - 9000
       - 9003
       - 9084
+      - 8080
     networks:
       - app-net
     depends_on:
@@ -133,13 +169,16 @@ services:
     container_name: nginx_wsl
     extra_hosts:
       - "host.docker.internal:host-gateway"
-      - "packs.local:host-gateway"
+      # - "packs.local:host-gateway"
     ports:
       - "80:80"
+      # - "8080:8080"  # для Reverb
       - "443:443"
     volumes:
       - ./code:/data:cached
-      - ./nginx/hosts:/etc/nginx/sites-enabled:cached
+      - ./nginx/hosts:/etc/nginx/sites-enabled
+      - ./nginx/certs:/etc/nginx/certs
+      - ./nginx/logs:/var/log/nginx
     networks:
       - app-net
     depends_on:
