@@ -125,6 +125,12 @@ services:
       - 8080 
     networks:
       - app-net
+    healthcheck:
+      test: ["CMD-SHELL", "php-fpm -t || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
     depends_on:
       - db_maria_wsl
 
@@ -144,7 +150,7 @@ services:
       - "host.docker.internal:host-gateway"
     ports:
       - "${XDEBUG_PORT_84}:9003" # xDebug
-      - "9084:9084" # Laravel Octane или кастомный порт
+      # - "9084:9084" # Laravel Octane или кастомный порт
     volumes:
       - ./code:${SITE_PATH}
       - ./.env:${SITE_PATH}/.env
@@ -159,6 +165,39 @@ services:
       - app-net
     depends_on:
       - db_maria_wsl
+
+  # PHP 8.5
+  # webapp-8-5:
+    # build:
+    #   args:
+    #     uname: ${PHP_UNAME}
+    #     uid: ${PHP_UID}
+    #     gid: ${PHP_GID}
+    #   context: ./fpm/fpm-8.5
+    #   dockerfile: Dockerfile
+    # image: webapp/php8.5
+    # container_name: webapp85_wsl
+    # restart: unless-stopped
+    # extra_hosts:
+    #   - "host.docker.internal:host-gateway"
+    # ports:
+    #   - "${XDEBUG_PORT_85}:9003" # xDebug
+    #   # - "9084:9084" # Laravel Octane или кастомный порт
+    # volumes:
+    #   - ./code:${SITE_PATH}
+    #   - ./.env:${SITE_PATH}/.env
+    # environment:
+    #   COMPOSER_MEMORY_LIMIT: 2G
+    # expose:
+    #   - 9000
+    #   - 9003
+    #   - 9084
+    #   - 8080
+    # networks:
+    #   - app-net
+    # depends_on:
+    #   - db_maria_wsl
+    #   - db_mysql_wsl
 
   # Nginx
   nginx:
@@ -187,22 +226,78 @@ services:
       - webapp-8-3
       - webapp-8-4
       - db_maria_wsl
-
-  # MariaDB
+# MariaDB
   db_maria_wsl:
-    image: mariadb
+    image: mariadb:latest
     container_name: maria_db_wsl
     restart: always
     ports:
-      - "3306:3306"
+      - "3306:3306" # Стандартный порт
     environment:
-      MYSQL_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
       MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${MARIADB_DATABASE:-app}        # Дефолтная БД
+      MARIADB_USER: ${MARIADB_USER:-app}                # Не-root пользователь
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}             # Пароль для не-root
+      TZ: ${TZ:-Europe/Moscow}                       # Часовой пояс
     volumes:
-      - ./dbdata/mysqldata:/var/lib/mysql:cached
+      - ./dbdata/mysqldata:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 60s  # MariaDB стартует дольше, чем простой процесс
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    command: >
+      --max-connections=500
+      --innodb-buffer-pool-size=${INNODB_BUFFER_POOL_SIZE:-1G}
+      --skip-name-resolve
+      --slow-query-log=1
+      --slow-query-log-file=/var/log/mysql/slow.log
+      --long-query-time=2
     networks:
       - app-net
 
+  # MySQL 8.0
+  db_mysql_wsl:
+    image: mysql:8.0.40
+    container_name: mysql_db_wsl
+    restart: always
+    ports:
+      - "3307:3306" # Пробрасываем на другой порт хоста
+    environment:      
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-app}
+      MYSQL_USER: ${MYSQL_USER:-app}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      TZ: ${TZ:-Europe/Moscow}
+    volumes:
+      - ./dbdata/mysql8:/var/lib/mysql      
+      - ./dbdata/mysql/conf.d:/etc/mysql/conf.d:ro
+      - ./dbdata/mysql/logs:/var/log/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    command: >
+      --default-authentication-plugin=mysql_native_password
+      --max-connections=500
+      --innodb-buffer-pool-size=${INNODB_BUFFER_POOL_SIZE:-1G}
+      --skip-name-resolve
+      --slow-query-log=1
+      --slow-query-log-file=/var/log/mysql/slow.log
+      --long-query-time=2
+    networks:
+      - app-net
   # Redis
   redis:
     build:
@@ -229,4 +324,5 @@ volumes:
 
 networks:
   app-net:
+    name: wsl_net
     driver: bridge

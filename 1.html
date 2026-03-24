@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>McIntosh | Invisible Technology, Felt Comfort</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Outfit:wght@200;300;400;500&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #111111;
+      --text-primary: #f5f0e8;
+      --text-secondary: #8a8580;
+      --accent-gold: #c9a962;
+      --accent-blue: #4a7c9b;
+      --accent-warm: #d4a574;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      <!-- cursor: none; -->
+    }
+    
+    /* Custom Cursor */
+    /*.cursor {
+      width: 20px;
+      height: 20px;
+      border: 1px solid var(--accent-gold);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 10000;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      mix-blend-mode: difference;
+    }
+    
+    .cursor-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--accent-gold);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 10001;
+    }
+    
+    .cursor.hover {
+      transform: scale(2.5);
+      border-color: var(--accent-warm);
+    }
+    */
+    /* Ambient Background *//*
+    .ambient-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    
+    .ambient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.3;
+      animation: float 20s ease-in-out infinite;
+    }
+    
+    .orb-1 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--accent-blue) 0%, transparent 70%);
+      top: -200px;
+      right: -100px;
+      animation-delay: 0s;
+    }
+    
+    .orb-2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--accent-gold) 0%, transparent 70%);
+      bottom: -150px;
+      left: -100px;
+      animation-delay: -7s;
+    }
+    
+    .orb-3 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--accent-warm) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-delay: -14s;
+      opacity: 0.15;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -40px) scale(1.05); }
+      50% { transform: translate(-20px, 20px) scale(0.95); }
+      75% { transform: translate(40px, 30px) scale(1.02); }
+    }*/
+    
+    /* Mouse Follow Light */
+    /*.mouse-light {
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(201, 169, 98, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease;
+    }*/
+    
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 30px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.9) 0%, transparent 100%);
+    }
+    
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: 8px;
+      color: var(--text-primary);
+      text-transform: uppercase;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 50px;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent-gold);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+    }
+    
+    .hero-content {
+      max-width: 900px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1.5s ease forwards 0.5s;
+    }
+    
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .hero-subtitle {
+      font-size: 12px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 30px;
+      font-weight: 300;
+    }
+    
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 8vw, 100px);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 40px;
+      letter-spacing: -2px;
+    }
+    
+    .hero-title span {
+      display: block;
+      color: var(--accent-gold);
+      font-style: italic;
+    }
+    
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      font-weight: 200;
+      line-height: 1.8;
+      max-width: 500px;
+      margin: 0 auto 50px;
+    }
+    
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      padding: 18px 45px;
+      border: 1px solid var(--accent-gold);
+      background: transparent;
+      color: var(--text-primary);
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--accent-gold);
+      transition: left 0.4s ease;
+      z-index: -1;
+    }
+    
+    .hero-cta:hover::before {
+      left: 0;
+    }
+    
+    .hero-cta:hover {
+      color: var(--bg-primary);
+    }
+    
+    .scroll-indicator {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 1.5s;
+    }
+    
+    .scroll-indicator span {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+    }
+    
+    .scroll-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--accent-gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes scrollPulse {
+      0%, 100% { transform: scaleY(1); opacity: 1; }
+      50% { transform: scaleY(0.5); opacity: 0.5; }
+    }
+    
+    /* Philosophy Section */
+    .philosophy {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 150px 60px;
+      position: relative;
+    }
+    
+    .philosophy-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    
+    .philosophy-visual {
+      position: relative;
+      height: 500px;
+    }
+    
+    .visual-frame {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(201, 169, 98, 0.3);
+      transition: transform 0.5s ease;
+    }
+    
+    .visual-frame:nth-child(1) {
+      top: 20px;
+      left: 20px;
+    }
+    
+    .visual-frame:nth-child(2) {
+      top: 40px;
+      left: 40px;
+      border-color: rgba(201, 169, 98, 0.15);
+    }
+    
+    .visual-image {
+      position: absolute;
+      width: calc(100% - 60px);
+      height: calc(100% - 60px);
+      top: 0;
+      left: 0;
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, #1a1a1a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    .visual-image::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 2px,
+        rgba(201, 169, 98, 0.03) 2px,
+        rgba(201, 169, 98, 0.03) 4px
+      );
+      animation: patternMove 20s linear infinite;
+    }
+    
+    @keyframes patternMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
+    }
+    
+    .visual-icon {
+      width: 120px;
+      height: 120px;
+      border: 1px solid var(--accent-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .visual-icon svg {
+      width: 50px;
+      height: 50px;
+      stroke: var(--accent-gold);
+      fill: none;
+      stroke-width: 1;
+    }
+    
+    .philosophy-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 30px;
+      font-weight: 300;
+    }
+    
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 40px;
+    }
+    
+    .section-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 2;
+      font-weight: 200;
+      margin-bottom: 40px;
+    }
+    
+    .philosophy-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-style: italic;
+      color: var(--text-primary);
+      border-left: 2px solid var(--accent-gold);
+      padding-left: 30px;
+      line-height: 1.6;
+    }
+    
+    /* Products Section */
+    .products {
+      padding: 150px 60px;
+      position: relative;
+    }
+    
+    .products-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 100px;
+    }
+    
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .product-card {
+      position: relative;
+      aspect-ratio: 3/4;
+      background: var(--bg-secondary);
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .product-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 50%);
+      z-index: 1;
+    }
+    
+    .product-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #151515 0%, #0d0d0d 100%);
+      transition: transform 0.6s ease;
+    }
+    
+    .product-card:hover .product-bg {
+      transform: scale(1.05);
+    }
+    
+    .product-glow {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, var(--accent-gold) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      filter: blur(40px);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .product-card:hover .product-glow {
+      opacity: 0.2;
+    }
+    
+    .product-content {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      right: 40px;
+      z-index: 2;
+    }
+    
+    .product-category {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 15px;
+      font-weight: 300;
+    }
+    
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 15px;
+      transition: color 0.3s ease;
+    }
+    
+    .product-card:hover .product-name {
+      color: var(--accent-gold);
+    }
+    
+    .product-tagline {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 200;
+      line-height: 1.6;
+    }
+    
+    .product-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gold);
+      transition: width 0.4s ease;
+      z-index: 2;
+    }
+    
+    .product-card:hover .product-line {
+      width: 100%;
+    }
+    
+    /* Experience Section */
+    .experience {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 150px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .experience-bg-text {
+      position: absolute;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 25vw;
+      font-weight: 300;
+      color: rgba(201, 169, 98, 0.03);
+      white-space: nowrap;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    
+    .experience-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .experience-item {
+      padding: 50px;
+      border: 1px solid rgba(201, 169, 98, 0.15);
+      background: rgba(17, 17, 17, 0.5);
+      backdrop-filter: blur(10px);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+    
+    .experience-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(201, 169, 98, 0.05) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    
+    .experience-item:hover::before {
+      opacity: 1;
+    }
+    
+    .experience-item:hover {
+      border-color: rgba(201, 169, 98, 0.4);
+      transform: translateY(-10px);
+    }
+    
+    .experience-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72px;
+      font-weight: 300;
+      color: var(--accent-gold);
+      opacity: 0.3;
+      margin-bottom: 30px;
+    }
+    
+    .experience-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+    
+    .experience-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      font-weight: 200;
+    }
+    
+    /* Heritage Section */
+    .heritage {
+      padding: 150px 60px;
+      position: relative;
+    }
+    
+    .heritage-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .heritage-years {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      margin-top: 80px;
+    }
+    
+    .year-item {
+      text-align: center;
+    }
+    
+    .year-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      font-weight: 300;
+      color: var(--accent-gold);
+      line-height: 1;
+    }
+    
+    .year-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-top: 15px;
+      font-weight: 300;
+    }
+    
+    /* Contact Section */
+    .contact {
+      padding: 150px 60px;
+      background: linear-gradient(to top, var(--bg-secondary) 0%, transparent 100%);
+    }
+    
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .contact-form {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .form-group {
+      position: relative;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 20px 0;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(201, 169, 98, 0.3);
+      color: var(--text-primary);
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 200;
+      transition: border-color 0.3s ease;
+      outline: none;
+    }
+    
+    .form-input::placeholder {
+      color: var(--text-secondary);
+      letter-spacing: 1px;
+    }
+    
+    .form-input:focus {
+      border-color: var(--accent-gold);
+    }
+    
+    .form-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent-gold);
+      transition: width 0.3s ease;
+    }
+    
+    .form-input:focus ~ .form-line {
+      width: 100%;
+    }
+    
+    .submit-btn {
+      padding: 20px 50px;
+      background: transparent;
+      border: 1px solid var(--accent-gold);
+      color: var(--text-primary);
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    
+    .submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--accent-gold);
+      transition: left 0.4s ease;
+      z-index: -1;
+    }
+    
+    .submit-btn:hover::before {
+      left: 0;
+    }
+    
+    .submit-btn:hover {
+      color: var(--bg-primary);
+    }
+    
+    /* Footer */
+    footer {
+      padding: 60px;
+      border-top: 1px solid rgba(201, 169, 98, 0.1);
+    }
+    
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+    }
+    
+    .footer-text {
+      font-size: 12px;
+      color: var(--text-secondary);
+      letter-spacing: 1px;
+    }
+    
+    /* Scroll Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: all 1s ease;
+    }
+    
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .experience-content {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+      }
+    }
+    
+    @media (max-width: 900px) {
+      nav {
+        padding: 20px 30px;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .philosophy-content {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+      
+      .philosophy-visual {
+        height: 350px;
+      }
+      
+      .heritage-years {
+        flex-direction: column;
+        gap: 40px;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-title {
+        letter-spacing: 0;
+      }
+      
+      .philosophy, .products, .experience, .heritage, .contact {
+        padding: 100px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-dot"></div>
+  
+  <!-- Mouse Follow Light -->
+  <div class="mouse-light"></div>
+  
+  <!-- Ambient Background -->
+  <div class="ambient-bg">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+  </div>
+  
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">McIntosh</div>
+    <ul class="nav-links">
+      <li><a href="#philosophy" class="hoverable">Philosophy</a></li>
+      <li><a href="#products" class="hoverable">Collections</a></li>
+      <li><a href="#experience" class="hoverable">Experience</a></li>
+      <li><a href="#contact" class="hoverable">Connect</a></li>
+    </ul>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-subtitle">Established 1949</p>
+      <h1 class="hero-title">
+        Technology you don't feel,
+        <span>only comfort.</span>
+      </h1>
+      <p class="hero-desc">
+        We believe the finest technology disappears into your life, 
+        leaving only pure moments of joy and connection.
+      </p>
+      <a href="#products" class="hero-cta hoverable">Discover Collections</a>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+  
+  <!-- Philosophy Section -->
+  <section class="philosophy" id="philosophy">
+    <div class="philosophy-content">
+      <div class="philosophy-visual reveal">
+        <div class="visual-frame"></div>
+        <div class="visual-frame"></div>
+        <div class="visual-image">
+          <div class="visual-pattern"></div>
+          <div class="visual-icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="philosophy-text reveal">
+        <p class="section-label">Our Philosophy</p>
+        <h2 class="section-title">The Art of Invisible Engineering</h2>
+        <p class="section-desc">
+          Every McIntosh creation begins with a simple question: how does this make you feel? 
+          We strip away complexity to reveal purity. No overwhelming specifications, 
+          no technical barriers — only the seamless integration of precision and pleasure.
+          <br><br>
+          Our engineers work in the space between science and sensibility, 
+          crafting experiences that feel intuitive from the first moment.
+        </p>
+        <blockquote class="philosophy-quote">
+          "Excellence is not in the details you see, but in the ones you never notice."
+        </blockquote>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Products Section -->
+  <section class="products" id="products">
+    <div class="products-header reveal">
+      <p class="section-label">Collections</p>
+      <h2 class="section-title">Crafted for Feeling</h2>
+      <p class="section-desc">
+        Each piece is a meditation on form and function, designed to complement your space and elevate your moments.
+      </p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card reveal hoverable">
+        <div class="product-bg"></div>
+        <div class="product-glow"></div>
+        <div class="product-content">
+          <p class="product-category">Audio Systems</p>
+          <h3 class="product-name">Serenity Series</h3>
+          <p class="product-tagline">Sound that breathes with your space</p>
+        </div>
+        <div class="product-line"></div>
+      </div>
+      <div class="product-card reveal hoverable">
+        <div class="product-bg"></div>
+        <div class="product-glow"></div>
+        <div class="product-content">
+          <p class="product-category">Home Integration</p>
+          <h3 class="product-name">Aura Collection</h3>
+          <p class="product-tagline">Seamless living, intuitively connected</p>
+        </div>
+        <div class="product-line"></div>
+      </div>
+      <div class="product-card reveal hoverable">
+        <div class="product-bg"></div>
+        <div class="product-glow"></div>
+        <div class="product-content">
+          <p class="product-category">Personal Audio</p>
+          <h3 class="product-name">Essence Line</h3>
+          <p class="product-tagline">Private concerts, anywhere</p>
+        </div>
+        <div class="product-line"></div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Experience Section -->
+  <section class="experience" id="experience">
+    <div class="experience-bg-text">SENSORY</div>
+    <div class="experience-content">
+      <div class="experience-item reveal hoverable">
+        <div class="experience-number">01</div>
+        <h3 class="experience-title">The Unspoken Connection</h3>
+        <p class="experience-desc">
+          When technology truly serves you, it anticipates rather than demands. 
+          Our interfaces fade into intuition, creating pathways of pure engagement.
+        </p>
+      </div>
+      <div class="experience-item reveal hoverable">
+        <div class="experience-number">02</div>
+        <h3 class="experience-title">Silence as Design</h3>
+        <p class="experience-desc">
+          The absence of noise is not emptiness — it's clarity. 
+          We engineer quietude into every interaction, allowing moments to speak for themselves.
+        </p>
+      </div>
+      <div class="experience-item reveal hoverable">
+        <div class="experience-number">03</div>
+        <h3 class="experience-title">Enduring Presence</h3>
+        <p class="experience-desc">
+          True luxury deepens with time. Our creations grow more beloved as they become 
+          part of your daily rituals and cherished memories.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Heritage Section -->
+  <section class="heritage">
+    <div class="heritage-content reveal">
+      <p class="section-label">Heritage</p>
+      <h2 class="section-title">Seven Decades of Disappearing Excellence</h2>
+      <p class="section-desc">
+        Since 1949, we have quietly shaped the landscape of premium audio and home experiences. 
+        Our legacy is measured not in products, but in the moments we've enhanced.
+      </p>
+    </div>
+    <div class="heritage-years">
+      <div class="year-item reveal">
+        <div class="year-number">75</div>
+        <p class="year-label">Years of Craft</p>
+      </div>
+      <div class="year-item reveal">
+        <div class="year-number">40+</div>
+        <p class="year-label">Countries</p>
+      </div>
+      <div class="year-item reveal">
+        <div class="year-number">∞</div>
+        <p class="year-label">Moments Enhanced</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="contact-content reveal">
+      <p class="section-label">Connect</p>
+      <h2 class="section-title">Begin Your Journey</h2>
+      <p class="section-desc">
+        Experience McIntosh in your space. Our consultants are here to guide you 
+        toward the perfect harmony of technology and lifestyle.
+      </p>
+      <form class="contact-form">
+        <div class="form-group">
+          <input type="text" class="form-input hoverable" placeholder="Your Name">
+          <div class="form-line"></div>
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-input hoverable" placeholder="Email Address">
+          <div class="form-line"></div>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-input hoverable" placeholder="Tell us about your space">
+          <div class="form-line"></div>
+        </div>
+        <button type="submit" class="submit-btn hoverable">Request Consultation</button>
+      </form>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">McIntosh</div>
+      <p class="footer-text">Crafting comfort since 1949</p>
+    </div>
+  </footer>
+  
+  <script>
+    // Custom Cursor
+    const cursor = document.querySelector('.cursor');
+    const cursorDot = document.querySelector('.cursor-dot');
+    const mouseLight = document.querySelector('.mouse-light');
+    
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+    let lightX = 0, lightY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      
+      cursorDot.style.left = mouseX + 'px';
+      cursorDot.style.top = mouseY + 'px';
+    });
+    
+    function animateCursor() {
+      cursorX += (mouseX - cursorX) * 0.15;
+      cursorY += (mouseY - cursorY) * 0.15;
+      
+      cursor.style.left = cursorX + 'px';
+      cursor.style.top = cursorY + 'px';
+      
+      lightX += (mouseX - lightX) * 0.08;
+      lightY += (mouseY - lightY) * 0.08;
+      
+      mouseLight.style.left = lightX + 'px';
+      mouseLight.style.top = lightY + 'px';
+      
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+    
+    // Hover effects
+    document.querySelectorAll('.hoverable').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+    
+    // Scroll Reveal
+    const reveals = document.querySelectorAll('.reveal');
+    
+    function checkReveal() {
+      reveals.forEach(el => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        const revealPoint = 150;
+        
+        if (elementTop < windowHeight - revealPoint) {
+          el.classList.add('active');
+        }
+      });
+    }
+    
+    window.addEventListener('scroll', checkReveal);
+    checkReveal();
+    
+    // Parallax for ambient orbs
+    document.addEventListener('mousemove', (e) => {
+      const orbs = document.querySelectorAll('.ambient-orb');
+      const x = (e.clientX - window.innerWidth / 2) / 50;
+      const y = (e.clientY - window.innerHeight / 2) / 50;
+      
+      orbs.forEach((orb, i) => {
+        const speed = (i + 1) * 0.5;
+        orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+      });
+    });
+    
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+    
+    // Form interaction
+    document.querySelector('.contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = document.querySelector('.submit-btn');
+      btn.textContent = 'Thank You';
+      btn.style.pointerEvents = 'none';
+    });
+    
+    // Hide cursor on mobile
+    if ('ontouchstart' in window) {
+      cursor.style.display = 'none';
+      cursorDot.style.display = 'none';
+      mouseLight.style.display = 'none';
+      document.body.style.cursor = 'auto';
+    }
+  </script>
+</body>
+</html>
