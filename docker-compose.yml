@@ -105,6 +105,7 @@ services:
       # - "${XDEBUG_PORT_83}:9003"     # xDebug
       - "9383:9003"
       - "5185:5185"     # Vite
+      - "5712:5712"
       - "9085:9083"     # Laravel Octane или другой HTTP порт
       - "8080:8080"  # для Reverb
     volumes:
@@ -150,6 +151,7 @@ services:
       - "host.docker.internal:host-gateway"
     ports:
       - "${XDEBUG_PORT_84}:9003" # xDebug
+      - "5719:5719"
       # - "9084:9084" # Laravel Octane или кастомный порт
     volumes:
       - ./code:${SITE_PATH}
@@ -241,12 +243,12 @@ services:
       TZ: ${TZ:-Europe/Moscow}                       # Часовой пояс
     volumes:
       - ./dbdata/mysqldata:/var/lib/mysql
-    healthcheck:
-      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 60s  # MariaDB стартует дольше, чем простой процесс
+    # healthcheck:
+    #   test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+    #   interval: 10s
+    #   timeout: 5s
+    #   retries: 5
+    #   start_period: 60s  # MariaDB стартует дольше, чем простой процесс
     ulimits:
       nofile:
         soft: 65536

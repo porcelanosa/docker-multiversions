@@ -1,5 +1,5 @@
 # Используем официальный образ PHP 8.4.11-fpm
-FROM php:8.4.11-fpm
+FROM php:8.4-fpm
 
 # Устанавливаем переменные окружения
 ARG NODE_VERSION=22
@@ -8,9 +8,12 @@ ENV NODE_OPTIONS=--max_old_space_size=16384
 
 # Устанавливаем зависимости и необходимые пакеты
 RUN apt-get update && apt-get install -y \
+    supervisor \
     curl \
     sudo \
     nano \
+    psmisc \
+    openssh-server \
     wget \
     git \
     zsh \

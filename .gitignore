@@ -11,3 +11,5 @@
 !/code/mysite
 !/nginx/logs/.gitignore
 /nginx/logs/**/*
+/node_modules/**/*
+/node_modules

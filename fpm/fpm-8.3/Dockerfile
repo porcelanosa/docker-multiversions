@@ -7,6 +7,7 @@ RUN pear config-set php_ini "$PHP_INI_DIR" && \
     curl \
     sudo \
     nano \
+    psmisc \
     openssh-server \
     wget \
     git \
@@ -18,6 +19,8 @@ RUN pear config-set php_ini "$PHP_INI_DIR" && \
     libzip-dev \
     libpq-dev \
     libicu-dev \
+    net-tools \
+    iproute2 \
     && docker-php-ext-install -j$(nproc) iconv mbstring mysqli pdo_mysql zip sockets \
     && docker-php-ext-install pdo pdo_pgsql pgsql \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
